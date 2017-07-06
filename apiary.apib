@@ -1,0 +1,70 @@
+FORMAT: 1A
+HOST: https://api-v1.tofes101.co.il
+
+# Tofes 101 API
+
+An API for managing employers, employees and tofes-101 forms.
+
+## Employees Collection [/employees]
+
+### List All Employees [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[Employee])
+
+### Create a New Employee [POST]
+
++ Request (application/json)
+
+        {
+            "first_name": "טום",
+            "last_name": "ים",
+            "id_number": 123456789
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /employees/012345678901234567890123
+
+    + Body
+
+            {
+                "first_name": "טום",
+                "last_name": "ים",
+                "id_number": 123456789
+            }
+
+## Employers Collection [/employers]
+
+### List All Employers [GET]
+
+Return a list of all the employers the signed in user can see.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Employer])
+
+## 101-Forms Collection [/101forms]
+
+
+## Data Structures
+
+
+### Employee
++ first_name: "John"
++ last_name: "Doe"
++ `id_number`: 123456789 (number) - The Israeli Identification number
++ passport_number: "123456789" - The passport number used to identify the employee. A string because some countries use letters for passport number.
++ passport_country: "FRA" - The ISO 3166-1 Alpha-3 code of the country
+
+### Employer
++ name: חברה בע"מ (required)
++ type
++ address: ת.ד. 10200 תל-אביבת (required)
++ deductions_file: 9111111111 (number, required)
+
+
++ מספר_ישות
